@@ -1,4 +1,4 @@
-# Machine
+# Jelopi
 Rust based GPIO controller for a raspberry pi based on work by [jcreekmore](https://gist.github.com/jcreekmore). The concept is loosely based on how 
 PLCs operate in industry.
 
