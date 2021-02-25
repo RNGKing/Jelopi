@@ -36,7 +36,7 @@ pub struct Registers{
 }
 
 impl Registers {
-    pub fn new(path_to_data : String) -> Result<Registers, String> {
+    pub fn new(path_to_data : &str) -> Result<Registers, String> {
         match fs::read_to_string(path_to_data) {
             Ok(file_content) => {
                 match json::parse(&file_content) {

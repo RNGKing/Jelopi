@@ -6,7 +6,7 @@ use crate::opcode::OpCode;
 struct VirtualMachine {
     input_pins : Vec<InputPin>,
     output_pins : Vec<OutputPin>,
-    registers : Registers,
+    pub registers : Registers,
     rungs : Vec<InstructionCollection>,
 }
 
@@ -39,5 +39,7 @@ impl VirtualMachine {
             inst.get_jump_to_else()
         }
     }
+
+    
 }
 
