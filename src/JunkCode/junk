@@ -1,0 +1,48 @@
+pub struct Instructions {
+    instructions : Vec<Instruction>
+}
+
+impl Instructions {
+    pub fn build(file_path : &str) -> Result<Instructions, String> {
+        let mut instruction_list: Vec<Instruction> = Vec::new();
+        match read_lines(file_path){ 
+            Ok(lines) => {
+                for line in lines {
+                    if let Ok(info) = line {
+                        let split_info: Vec<&str> = info.split(" ").collect();
+                        instruction_list.push(
+                            Instruction {
+                                op_code : OpCode::from(split_info[0]),
+                                input_val_one : split_info[1].parse::<usize>().unwrap(),
+                                input_val_two : split_info[2].parse::<usize>().unwrap(),
+                                output_register_id : split_info[3].parse::<usize>().unwrap(),
+                            }
+                        )
+                    }
+                }
+                Ok(Instructions{
+                    instructions: instruction_list
+                })
+            },
+            Err(err) => Err("Failed to load file".to_string())
+        }
+    }
+}
+
+pub struct Instruction {
+    op_code : OpCode,
+    input_val_one : usize,
+    input_val_two : usize,
+    output_register_id : usize,
+}
+
+
+
+fn build_register_list(register_def_file : &String) -> Result<Registers, &str>{
+    match Registers::new(register_def_file.to_string()) {
+        Ok(data) => {
+            Ok(data)
+        },
+        Err(err) => Err("Failed to collect data")
+    }
+}

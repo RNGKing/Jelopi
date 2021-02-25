@@ -1,0 +1,16 @@
+{
+    "registers" : [
+        {
+            "name" : "fuck_face",
+            "type" : "u8"
+        },
+        {
+            "name" : "fuck_face_2",
+            "type" : "u8"
+        },
+        {
+            "name" : "fuck_face_3",
+            "type" : "u8"
+        }
+    ]
+}
