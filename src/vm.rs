@@ -18,7 +18,8 @@ impl VirtualMachine {
             let mut index = 0;
             while index < collection.get_len(){
                 VirtualMachine::print_registers(self);
-                let inst = collection.get_instruction(index); 
+                let inst = collection.get_instruction(index);
+                println!("Running Index : {}", index); 
                 println!("RUNNING INSTRUCTION TYPE: {}, ARG_A: {}, ARG_B: {}, OUT_REG: {}", 
                     inst.get_opcode(), inst.get_val_a(), inst.get_val_b(), inst.get_out_id());
                 if inst.get_opcode().is_boolean() {
@@ -39,8 +40,6 @@ impl VirtualMachine {
     }
 
     fn EvaluateBooleanStatement(inst : &InstructionData, truth_value : bool, curr_index : usize) -> usize {
-        println!("THEN : {} // ELSE : {}", inst.get_jump_to_then(), inst.get_jump_to_else());
-        
         if truth_value {
             inst.get_jump_to_then()
         }
