@@ -11,6 +11,10 @@
         {
             "name" : "more_polite_word3",
             "type" : "u8"
+        },
+        {
+            "name" : "more_polite_word4",
+            "type" : "u8"
         }
     ]
 }

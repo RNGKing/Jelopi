@@ -63,6 +63,7 @@ impl OpCode{
 }
 
 fn jmpb(inst : &InstructionData, before : &Registers) -> bool {
+    println!("Value - {}", before.register_entries[inst.get_val_a()].get_value(0));
     before.register_entries[inst.get_val_a()].get_value(0) > 0
 }
 
@@ -198,7 +199,7 @@ fn sbtr(instruction : &InstructionData, before:  &Registers) -> Registers {
 fn addi(instruction : &InstructionData, before:  &Registers) -> Registers {
     let mut out = before.clone();
     let new_val = out.register_entries[instruction.get_val_a()].get_value(0) +
-        out.register_entries[instruction.get_val_b()].get_value(0);
+        instruction.get_val_b();
     out.register_entries[instruction.get_out_id()].set_value(0, new_val);
     out
 }

@@ -31,10 +31,10 @@ impl InstructionData {
         let split : Vec<&str> = string_value.split(" ").collect();
         let code = OpCode::from(split[0]);
         a = split[1].parse::<usize>()?;       
-        b = split[1].parse::<usize>()?;       
-        out = split[1].parse::<usize>()?;       
-        jump_then = split[1].parse::<usize>()?;       
-        jump_else = split[1].parse::<usize>()?;       
+        b = split[2].parse::<usize>()?;       
+        out = split[3].parse::<usize>()?;       
+        jump_then = split[4].parse::<usize>()?;       
+        jump_else = split[5].parse::<usize>()?;       
         Ok(InstructionData {
             op_code : code,
             val_a : a,
